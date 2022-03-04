@@ -1,0 +1,3 @@
+﻿  4.cpp
+C:\Users\psydw2\source\repos\COMP3011\labs\4\util.h(17,35): warning C4267: 'initializing': conversion from 'size_t' to 'long', possible loss of data
+  4.vcxproj -> C:\Users\psydw2\source\repos\COMP3011\labs\x64\Debug\4.exe
