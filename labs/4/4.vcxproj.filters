@@ -29,7 +29,7 @@
     <ClCompile Include="..\..\include\glad\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="4.cpp">
+    <ClCompile Include="run.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

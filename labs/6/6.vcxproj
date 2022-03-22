@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{936efde1-3a2a-44db-8807-a46e65a53748}</ProjectGuid>
-    <RootNamespace>My2</RootNamespace>
+    <ProjectGuid>{0200bb93-3136-402a-a761-11dceb01561b}</ProjectGuid>
+    <RootNamespace>_6</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -78,8 +78,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>..\..\include;$(IncludePath)</IncludePath>
-    <LibraryPath>..\..\lib\glfw-3.3.2\lib-vc2019;$(LibraryPath)</LibraryPath>
+    <IncludePath>../../include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <LibraryPath>../../lib/glfw-3.3.2/lib-vc2019;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -142,7 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\include\glad\glad.c" />
+    <ClCompile Include="glad.c" />
     <ClCompile Include="run.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -151,8 +151,8 @@
     <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="flat.frag" />
-    <None Include="triangle.vert" />
+    <None Include="col.frag" />
+    <None Include="mvp.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

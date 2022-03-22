@@ -148,7 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\include\glad\glad.c" />
-    <ClCompile Include="5.cpp" />
+    <ClCompile Include="run.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="col.frag" />
