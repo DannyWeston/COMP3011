@@ -6,5 +6,8 @@ in vec3 col;
 
 void main()
 {
-	fragColour = vec4(col.r, col.g, col.b, 1.0f);
+	float red = mod(int(col.r * 2), 2);
+	float blue = mod(int(col.b * 2), 2);
+
+	fragColour = vec4(red, col.g, blue, 1.0f);
 }
