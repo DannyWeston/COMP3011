@@ -19,11 +19,8 @@ struct SCamera
 	float Yaw;
 	float Pitch;
 
-	const float MovementSpeed = 2.5f;
+	const float MovementSpeed = 0.1f;
 	float MouseSensitivity = 1.f;
-
-
-
 };
 
 

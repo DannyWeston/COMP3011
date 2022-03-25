@@ -11,10 +11,6 @@
 #include "shader.h"
 #include "window.h"
 
-
-
-
-
 glm::vec3 cube_pos = glm::vec3(0.0f, 0.0f, 0.0f);
 
 float vertices[] =
@@ -65,16 +61,46 @@ float vertices[] =
 
 SCamera Camera;
 
-
-
-
-
-
-
 void processKeyboard(GLFWwindow* window)
 {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, true);
+
+	bool updated = false;
+	float x = 0.f, y = 0.f;
+
+	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
+		x = 1.f;
+		y = 0.f;
+		updated = true;
+	}
+	else if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) {
+		x = -1.f;
+		y = 0.f;
+		updated = true;
+	}
+	else if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+		x = 0.f;
+		y = 1.f;
+		updated = true;
+	}
+	else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+		x = 0.f;
+		y = -1.f;
+		updated = true;
+	}
+	else if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS) {
+		cam_dist += 0.001;
+		updated = true;
+	}
+	else if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS) {
+		cam_dist -= 0.001;
+		updated = true;
+	}
+
+	if (updated) {
+		MoveAndOrientCamera(Camera, cube_pos, cam_dist, x, y);
+	}
 
 }
 
@@ -88,10 +114,6 @@ int main(int argc, char** argv)
 
 	InitCamera(Camera);
 	MoveAndOrientCamera(Camera, cube_pos, cam_dist, 0.f, 0.f);
-
-
-
-
 
 	unsigned int VAO;
 	glGenVertexArrays(1, &VAO);
@@ -131,7 +153,8 @@ int main(int argc, char** argv)
 
 
 		glm::mat4 view = glm::mat4(1.f);
-		view = glm::translate(view, -glm::vec3(0.f, 0.f, 3.f));
+		view = glm::lookAt(Camera.Position, Camera.Position + Camera.Front, Camera.Up);
+		//glm::translate(view, -glm::vec3(0.f, 0.f, 3.f));
 		glUniformMatrix4fv(glGetUniformLocation(shaderProgram, "view"), 1, GL_FALSE, glm::value_ptr(view));
 
 		glm::mat4 projection = glm::mat4(1.f);
@@ -151,4 +174,3 @@ int main(int argc, char** argv)
 
 	return 0;
 }
-
